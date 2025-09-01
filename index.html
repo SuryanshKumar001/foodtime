@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="food.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Food Delivery Website Services</title>
+</head>
+<body>
+    <!-- sidebar -->
+     <div class="sidebar">
+        <!-- logo -->
+        <h1 class="logo">FoodTime</h1>
+        <!-- list -->
+        <div class="sidebar-menus">
+            <a href="#"><ion-icon name="storefront-outline"></ion-icon>Home</a>
+
+            <a href="#"><ion-icon name="receipt-outline"></ion-icon>Receipt</a>
+
+            <a href="#"><ion-icon name="wallet-outline"></ion-icon>Wallet</a>
+
+            <a href="#"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
+
+            <a href="#"><ion-icon name="chatbubbles-outline"></ion-icon>Contact Us</a>
+
+            <a href="#"><ion-icon name="settings-outline"></ion-icon>Settings</a>
+        </div>
+        <!-- logout -->
+        <div class="sidebar-logout">
+            <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+        </div>
+     </div>
+    
+    <!-- main -->
+    <div class="main">
+        <!-- main navbar -->
+        <div class="main-navbar">
+            <ion-icon class="menu-toggle"
+            name="menu-outline"></ion-icon>
+            <!-- search bar -->
+            <div class="search">
+                <input type="text" placeholder="What do you want to eat?">
+                <button class="search-btn">Search</button>
+            </div>
+            <!-- profile icon on left side of navbar -->
+             <div class="profile">
+                <a class="cart" href="#" onclick="togglecartpopup()"><ion-icon name="cart-outline"></ion-icon><span class="cart-count" id="cart-count">0</span></a>
+                <a class="user" href="#"><ion-icon name="person-outline"></ion-icon></a>
+             </div>
+        </div>
+
+        <!-- shopping cart -->
+         <div id="cart-popup" class="cart-popup">
+            <h4>Sopping Cart</h4>
+            <table id="cart-items">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>#</th>
+                        <th>Price(₹)</th>
+                        <th>Total(₹)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <p>Total(₹) <span id="cart-total">0</span></p>
+            <a class="cart-close" onclick="closecart()"><ion-icon name="close-circle-outline"></ion-icon></a>
+         </div>
+        <!-- main highlight -->
+         <div class="main-highlight">
+            <!-- title section & arrow -->
+            <div class="main-header">
+                <h2 class="main-title">Recommendations</h2>
+                <div class="main-arrow">
+                    <ion-icon class="back"name="chevron-back-circle-outline"></ion-icon>
+                    <ion-icon class="next"name="chevron-forward-circle-outline"></ion-icon>
+                </div>
+            </div>
+            <!-- highlight menu -->
+            <div class="highlight-wrapper">
+                <div class="highlight-card">
+                    <img class="highlight-img" src="burger.jpg">
+                    <div class="highlight-desk">
+                        <h4>Burger</h4>
+                        <p>₹79</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="pizza.jpg">
+                    <div class="highlight-desk">
+                        <h4>Pizza</h4>
+                        <p>₹99</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="momo.jpg">
+                    <div class="highlight-desk">
+                        <h4>Momo</h4>
+                        <p>₹49</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img class="highlight-img" src="samosa.jpg">
+                    <div class="highlight-desk">
+                        <h4>Samosa</h4>
+                        <p>₹25</p>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <!-- main menu/order -->
+        <div class="main-menus">
+            <!-- filter section -->
+            <div class="main-filter">
+                <div>
+                    <h2 class="main-title">Menu <br>Category</h2>
+                    <div class="main-arrow">
+                         <ion-icon class="back-menus"name="chevron-back-circle-outline"></ion-icon>
+                         <ion-icon class="next-menus"name="chevron-forward-circle-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="filter-wrapper">
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                             <ion-icon name="restaurant-outline"></ion-icon>
+                        </div>
+                        <p>All menus</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                             <ion-icon name="fast-food-outline"></ion-icon>
+                        </div>
+                        <p>Burger</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                             <ion-icon name="pizza-outline"></ion-icon>
+                        </div>
+                        <p>Pizza</p>
+                   </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                             <ion-icon name="wine-outline"></ion-icon>
+                        </div>
+                        <p>Drinks</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                             <ion-icon name="ice-cream-outline"></ion-icon>
+                        </div>
+                        <p>Ice Cream</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                             <ion-icon name="cafe-outline"></ion-icon>
+                        </div>
+                        <p>Coffee</p>
+                    </div>
+                <div class="filter-card">
+                        <div class="filter-icon">
+                             <ion-icon name="nutrition-outline"></ion-icon>
+                        </div>
+                        <p>Healthy</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider">
+            <!-- list of food menus -->
+            <div class="main-detail">
+                <h2 class="main-title">Choose Order</h2>
+                <div class="detail-wrapper">
+                    <div class="detail-card">
+                        <img class="detail-img" src="burger.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Burger</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹79</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Burger',79)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="pizza.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Pizza</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹99</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Pizza',99)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="samosa.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Samosa</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹25</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Samosa',25)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="momo.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Momos</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹49</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Momos',49)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="dosa.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Dosa</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹89</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Dosa',89)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="noodles.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Noodles</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹59</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Noodles',59)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="chillipaneer.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Chilli Paneer</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹79</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Chilli Paneer',79)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="chillipotato.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Chilli Potato</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹59</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Chilli Potato',59)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="frenchfries.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Fries</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹49</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Fries',49)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="primehydration.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Prime</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹179</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Prime',179)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="redbull.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Red Bull</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹79</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Red Bull',79)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="masi.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Mas+</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹179</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Mas+',179)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="coffee.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Coffee</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹39</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Coffee',39)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="icecream.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Ice-Cream</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹49</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Ice-Cream',49)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                    <div class="detail-card">
+                        <img class="detail-img" src="salad.jpg">
+                        <div class="detail-desk">
+                             <div class="detail-name">
+                                 <h4>Salad</h4>
+                                 <p class="detail-sub"><b>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</b></p>
+                                 <p class="price">₹89</p>
+                                 <button class="add-to-cart-btn" onclick="addtocart('Salad',89)">Add to Cart</button>
+                             </div>
+                             <ion-icon class="detail-favourites"name="bookmark-outline"></ion-icon>  
+                        </div>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="food.js"></script>
+</html>
